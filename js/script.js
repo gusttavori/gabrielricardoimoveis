@@ -9,7 +9,7 @@ let imoveis = [];
 // Carrega todos os imóveis do backend e atualiza os filtros
 async function carregarImoveisFiltro() {
   try {
-    const response = await fetch('http://localhost:3001/imoveis');
+    const response = await fetch('https://painel-dashboard.fly.dev/imoveis');
     imoveis = await response.json();
     atualizarCampos();
   } catch (error) {
