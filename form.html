@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anuncie seu imóvel - Gabriel Ricardo Imóveis</title>
+    <link rel="icon" href="fav.png?v=1" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style/form.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h3>Anuncie seu imóvel com a gente!</h3>
+    <p>Preencha os dados abaixo para entrarmos em contato via WhatsApp.</p>
+
+    <form onsubmit="enviarParaWhatsApp(event)">
+      <input type="text" id="nome" placeholder="Seu nome" required />
+      <input type="tel" id="telefone" placeholder="WhatsApp com DDD" required />
+      <input type="text" id="tipo" placeholder="Tipo do imóvel (Ex: Casa, Apto...)" required />
+      <input type="text" id="finalidade" placeholder="Finalidade (Venda, Aluguel...)" required />
+      <input type="text" id="bairro" placeholder="Bairro e Cidade" required />
+      <input type="text" id="valor" placeholder="Valor (R$)" required />
+      <textarea id="descricao" placeholder="Descrição rápida do imóvel" rows="4"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <script src="js/form.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

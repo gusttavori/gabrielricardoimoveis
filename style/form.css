@@ -1,0 +1,146 @@
+/* Fundo animado */
+body {
+  background: linear-gradient(-45deg, #1E3A5F, black, #1E3A5F);
+  font-family: 'Montserrat', sans-serif;
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Keyframes da animação */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Container do formulário */
+.form-container {
+  background-color: rgba(30, 58, 95, 0.411);
+  padding: 40px;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100px;
+}
+
+/* Títulos e textos */
+.form-container h3 {
+  font-size: 1.55rem;
+  margin-bottom: 5px;
+}
+
+.form-container p {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin-bottom: 35px;
+}
+
+/* Formulário */
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+}
+
+/* Inputs padrão */
+.input-group input,
+input,
+textarea {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background-color: #ffffff;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #414141;
+}
+
+/* Inputs inválidos */
+input.invalid,
+textarea.invalid {
+  border-color: #ff4d4d;
+  background-color: #fff0f0;
+}
+
+/* Mensagem de erro (caso você queira adicionar com JS futuramente) */
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+/* Botão */
+button {
+  padding: 12px;
+  background-color: #24436d;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #d3e6ff;
+  color: #162f50;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 20px;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+
+  .form-container h3 {
+    font-size: 1.4rem;
+  }
+
+  .form-container p {
+    font-size: 1.1rem;
+  }
+
+  .input-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input-group input {
+    width: 100%;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}
