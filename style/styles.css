@@ -480,6 +480,7 @@ footer {
 
     .menu a {
         margin: 0; /* Reduz margens para caber mais links */
+        font-size: 12px;
     }
 
     /* -- Hero e Busca -- */

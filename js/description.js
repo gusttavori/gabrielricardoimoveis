@@ -84,17 +84,22 @@ async function carregarImovel() {
         });
         
         // Atualiza o texto e a ação do botão "Ver mais"
-        const morePhotosBtn = document.querySelector('.view-more-photos-btn');
-        if (morePhotosBtn) {
-        // Altera o texto para ser mais informativo e adiciona a quebra de linha
-        morePhotosBtn.innerHTML = `Ver todas <br> as fotos`;
-            
-            morePhotosBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                // Abre o carrossel na primeira imagem ao clicar no botão
-                showImage(0); 
-            });
-        }
+// Seleciona TODOS os botões "Ver mais fotos" (tanto o de desktop quanto o de mobile)
+const morePhotosBtns = document.querySelectorAll('.view-more-photos-btn');
+
+// Adiciona o evento de clique para cada um deles
+morePhotosBtns.forEach(btn => {
+    // Se o botão for o de desktop, ajusta o texto
+    if (!btn.id || btn.id !== 'mobile-view-photos') {
+        btn.innerHTML = `Ver todas <br> as fotos`;
+    }
+
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Abre o carrossel na primeira imagem, não importa qual botão foi clicado
+        showImage(0); 
+    });
+});
         
         // --- Listeners Globais do Carrossel ---
 

@@ -235,6 +235,7 @@ footer {
 
     .menu a {
         margin: 0; /* Reduz margens para caber mais links */
+        font-size: 12px; /* Fonte menor para caber mais links */
     }
 
     /* 2. Ajusta a Seção Hero */
