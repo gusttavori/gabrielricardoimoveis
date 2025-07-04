@@ -154,7 +154,6 @@ function renderizarImoveisFiltrados(filtros = {}) {
       <div class="property-info">
         <h3>${imovel.titulo}</h3>
         <p>${imovel.bairro}</p>
-        <p>Dormitórios: ${imovel.dormitorios} | Banheiros: ${imovel.banheiros}</p>
       </div>
     `;
 
