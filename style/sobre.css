@@ -129,6 +129,31 @@ body {
   color: #333;
 }
 
+.whatsapp-float {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-float img {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0) invert(1); /* Inverte as cores para o ícone ficar branco */
+}
 
 footer {
   width: 100%;
@@ -202,64 +227,115 @@ footer {
 /* === INÍCIO DAS REGRAS DE RESPONSIVIDADE === */
 /* ============================================== */
 
+/* -- Para Tablets e Desktops Menores -- */
 @media (max-width: 992px) {
-    /* Ajustes para tablets */
-    .text-block {
-        flex-direction: column; /* Empilha a imagem e o texto */
-        align-items: center;
-        gap: 50px;
-    }
+  /* Ajusta o layout principal para empilhar a imagem e o texto */
+  .text-block {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
 
-    .sobre {
-        text-align: center; /* Centraliza o texto quando empilhado */
-    }
+  /* Centraliza o texto quando ele estiver empilhado */
+  .sobre {
+    text-align: center;
+  }
 }
 
+
+/* -- Para Celulares -- */
 @media (max-width: 768px) {
-    /* Ajustes para celulares */
+  /* -- Ajustes na Navbar -- */
+  .navbar {
+    flex-direction: column; /* Empilha o logo e o menu */
+    gap: 10px;
+    width: 95%; /* Ocupa quase toda a tela */
+    padding: 10px;
+  }
 
-    /* 1. Ajusta a Navbar */
-    .navbar {
-        flex-direction: column; /* Empilha logo e menu */
-        gap: 15px;
-        width: 95%; /* Ocupa quase toda a tela */
-    }
+  .menu {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os links quebrem a linha */
+    justify-content: center;
+    gap: 5px; /* Espaço entre os links */
+  }
 
-    .menu {
-        /* Para um menu com muitos itens, pode ser necessário um "hambúrguer" com JavaScript.
-           Esta solução com flex-wrap é uma alternativa simples com CSS puro. */
-        display: flex;
-        flex-wrap: wrap; /* Permite que os links quebrem a linha */
-        gap: 11px;
-    }
+  .menu a {
+    margin-left: 10px; /* Reduz a margem entre os links */
+    font-size: 11px;
+  }
 
-    .menu a {
-        margin: 0; /* Reduz margens para caber mais links */
-        font-size: 12px; /* Fonte menor para caber mais links */
-    }
 
-    /* 2. Ajusta a Seção Hero */
-    .hero {
-        padding: 100px 20px; /* Menos padding vertical */
-        min-height: 20vh;
-    }
+  /* -- Ajustes na Seção Hero -- */
+  .hero {
+    padding: 120px 20px; /* Menos padding vertical para telas menores */
+  }
 
-    .hero h1 {
-        font-size: 32px; /* Fonte menor */
-        margin-top: 80px; /* Menos margem superior */
-    }
+  .hero h1 {
+    font-size: 32px; /* Reduz o tamanho da fonte do título principal */
+  }
 
-    .hero p {
-        font-size: 16px;
-    }
-    
-    /* 3. Ajusta o Rodapé */
+  .hero p {
+    font-size: 14px; /* Reduz o tamanho da fonte do parágrafo */
+  }
+
+  .logo-img {
+    width: 100%; /* Faz a imagem ocupar todo o espaço disponível */
+    max-width: 200px; /* Limita o tamanho máximo da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+  }
+
+  .foto-legenda p {
+    font-size: 12px; /* Reduz o tamanho da fonte da legenda */
+    line-height: 1.4; /* Melhora a legibilidade em telas pequenas */
+  }
+
+  .sobre p {
+    font-size: 12px; /* Reduz o tamanho da fonte do texto */
+    line-height: 1.4; /* Melhora a legibilidade em telas pequenas */
+    text-align: left;
+  }
+  
     .footer-content {
         flex-direction: column;
         gap: 25px;
     }
-    
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .footer-links a {
+        font-size: 12px;
+    }
+    .footer-links ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .footer-links ul li {
+        font-size: 10px;
+    }
+    .footer-links ul li a {
+        font-size: 10px;
+    }
     .footer-line {
-        display: none; /* Esconde a linha vertical, que não faz sentido no layout de coluna */
+        display: none; /* Esconde a linha vertical */
+    }
+    .footer-logo img {
+        max-width: 200px; /* Reduz o tamanho do logo */
+    }
+    .footer-copy {
+        font-size: 9px;
+        margin-top: 20px;
+    }
+    .whatsapp-float {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-float img {
+        width: 22px;
+        height: 22px;
     }
 }

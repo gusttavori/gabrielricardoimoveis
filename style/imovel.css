@@ -191,12 +191,12 @@ body {
 /* --- Seção de Informações do Imóvel (Mantido) --- */
 /* ... (seu CSS de .property-info, .specs-grid e .description-details permanece o mesmo) ... */
 .property-info { background-color: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); }
-.property-info h1 { font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem; color: #1a202c; line-height: 1.3; }
+.property-info h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: #1a202c; line-height: 1.3; }
 .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2rem 1.5rem; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; padding: 2rem 0; }
 .spec-item { display: flex; align-items: center; gap: 1rem; }
-.spec-item i { font-size: 1.75rem; color: #1d3557; width: 30px; text-align: center; }
-.spec-item span { font-weight: 600; font-size: 1.1rem; color: #2d3748; }
-.spec-item p { font-size: 0.9rem; color: #718096; line-height: 1.2; }
+.spec-item i { font-size: 1.5rem; color: #1d3557; width: 30px; text-align: center; }
+.spec-item span { font-weight: 600; font-size: 1rem; color: #2d3748; }
+.spec-item p { font-size: 0.75rem; color: #718096; line-height: 1.2; }
 .description-details { margin-top: 2rem; }
 .description-details h3 { font-weight: 600; margin-bottom: 0.5rem; color: #2d3748; }
 .description-details p { color: #4a5568; }
@@ -236,13 +236,13 @@ body {
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column; /* Empilha o logo e o menu */
-        gap: 10px;
-        padding: 10px 15px;
+        gap: 5px;
+        padding: 10px 10px;
         width: 95%;
     }
     .menu a {
         margin: 0 10px; /* Reduz a margem entre os links */
-        font-size: 13px;
+        font-size: 11px;
     }
     .property-page-container {
         margin-top: 180px; /* Mais espaço para a navbar maior */
@@ -442,6 +442,35 @@ footer {
         gap: 20px;
     }
 
+    .view-more-photos-btn {
+       font-size: 12px;
+    }
+
+    .property-info h1 {
+        font-size: 20px; /* Aumenta o tamanho do título do imóvel */
+    }
+
+    .description-details {
+        font-size: 14px;
+    }
+
+    .description-details p {
+        font-size: 12px; /* Aumenta a legibilidade */
+    }
+
+    .main-price {
+        font-size: 20px; /* Aumenta o tamanho do preço principal */
+    }
+
+    .cta-button {
+        font-size: 14px; /* Aumenta o tamanho do botão */
+        padding: 12px; /* Aumenta o padding para melhor toque em telas pequenas */
+    }
+
+    .agent-details p {
+        font-size: 12px; /* Aumenta o tamanho do texto do agente */
+    }
+
     /* -- Seção de Contato -- */
     .contact-container {
         flex-direction: column;
@@ -461,8 +490,33 @@ footer {
         flex-direction: column;
         gap: 25px;
     }
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .footer-links a {
+        font-size: 12px;
+    }
+    .footer-links ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .footer-links ul li {
+        font-size: 10px;
+    }
+    .footer-links ul li a {
+        font-size: 10px;
+    }
     .footer-line {
         display: none; /* Esconde a linha vertical */
+    }
+    .footer-logo img {
+        max-width: 200px; /* Reduz o tamanho do logo */
+    }
+    .footer-copy {
+        font-size: 9px;
+        margin-top: 20px;
     }
         .gallery-grid {
         display: none;

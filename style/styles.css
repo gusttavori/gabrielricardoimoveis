@@ -248,20 +248,20 @@ body {
 
 .property-info h3 {
   margin: 0 0 5px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .property-info p {
   color: #666;
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .details {
   display: flex;
   justify-content: left;
   gap: 10px;
-  font-size: 14px;
+  font-size: 12px;
   color: #1d3557;
 }
 
@@ -271,8 +271,8 @@ body {
 
 .whatsapp-float {
   position: fixed;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   bottom: 20px;
   right: 20px;
   background-color: #25d366;
@@ -290,8 +290,8 @@ body {
 }
 
 .whatsapp-float img {
-  width: 32px;
-  height: 32px;
+  width: 22px;
+  height: 22px;
   filter: brightness(0) invert(1); /* Inverte as cores para o ícone ficar branco */
 }
 .contact-section {
@@ -326,7 +326,7 @@ body {
 
 .contact-form {
   flex: 1;
-  padding: 20px;
+  padding: 35px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -335,13 +335,13 @@ body {
 
 .contact-form h2 {
   margin-top: 1rem;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .contact-form p {
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 20px;
 }
 
@@ -351,7 +351,7 @@ body {
   margin-bottom: 15px;
   border: 1px solid #999;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .contact-form .form-row {
@@ -369,12 +369,11 @@ body {
   background-color: #1E3A5F;
   color: #fff;
   border: none;
-  padding: 10px 40px;
-  font-size: 14px;
+  padding: 8px 20px;
+  font-size: 12px;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  align-self: center; /* centraliza só o botão */
   margin-top: 10px;
 }
 
@@ -475,12 +474,12 @@ footer {
            Esta solução com flex-wrap é uma alternativa simples com CSS puro. */
         display: flex;
         flex-wrap: wrap; /* Permite que os links quebrem a linha */
-        gap: 11px;
+        gap: 9px;
     }
 
     .menu a {
         margin: 0; /* Reduz margens para caber mais links */
-        font-size: 12px;
+        font-size: 11px;
     }
 
     /* -- Hero e Busca -- */
@@ -489,40 +488,46 @@ footer {
     }
 
     .overlay {
-    width: 450px;
+    width: 350px;
     }
     .overlay h1 {
-        font-size: 20px;
+        font-size: 14px;
     }
     .overlay p {
-        font-size: 14px;
+        font-size: 10px;
         margin-bottom: 100px;
     }
     .search-box {
         position: relative;
         left: 50%;
         transform: translateX(-50%);
-        width: 400px;
+        width: 300px;
         padding: 20px;
         margin-top: -80px; /* Sobe um pouco mais em telas menores */
-    }
-    .search-form {
-        width: 100%;
     }
 
     .form-fields {
         flex-direction: column;
         align-items: stretch; /* Faz os campos ocuparem 100% da largura */
+
     }
     .form-fields select,
-    .form-fields input,
+    .form-fields input {
+        max-width: 100%; /* Garante que ocupem a largura total */
+        font-size: 10px; /* Fonte menor para melhor encaixe */
+    }
+
     .btn-search {
-        min-width: 100%; /* Garante que ocupem a largura total */
+        font-size: 10px !important; /* Fonte menor para melhor encaixe */
+    }
+
+    .form-toggle .toggle-btn {
+        font-size: 10px;
     }
 
     /* -- Seção de Imóveis -- */
     .property-section h2 {
-        font-size: 20px;
+        font-size: 16px;
     }
     .property-list {
         gap: 20px;
@@ -536,10 +541,10 @@ footer {
         display: none; /* Esconde a imagem para economizar espaço vertical */
     }
     .contact-form {
-        padding: 25px;
+        padding: 20px;
     }
     .contact-form h2 {
-        font-size: 22px;
+        font-size: 16px;
     }
 
     /* -- Rodapé -- */
@@ -547,7 +552,42 @@ footer {
         flex-direction: column;
         gap: 25px;
     }
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .footer-links a {
+        font-size: 12px;
+    }
+    .footer-links ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .footer-links ul li {
+        font-size: 10px;
+    }
+    .footer-links ul li a {
+        font-size: 10px;
+    }
     .footer-line {
         display: none; /* Esconde a linha vertical */
+    }
+    .footer-logo img {
+        max-width: 200px; /* Reduz o tamanho do logo */
+    }
+    .footer-copy {
+        font-size: 8px;
+        margin-top: 20px;
+    }
+    .whatsapp-float {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-float img {
+        width: 22px;
+        height: 22px;
     }
 }
