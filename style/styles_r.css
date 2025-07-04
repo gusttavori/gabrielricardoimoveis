@@ -1,0 +1,188 @@
+/* Responsividade para tablets e telas médias */
+@media (max-width: 1024px) {
+  .navbar {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+  .logo img {
+    width: 180px;
+  }
+
+  .menu a {
+    margin-left: 14px;
+  }
+
+  .overlay h1 {
+    font-size: 24px;
+  }
+
+  .overlay p {
+    font-size: 12px;
+  }
+
+  .form-fields {
+    flex-direction: column;
+  }
+
+  .property-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .property-list {
+    justify-content: center;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-line {
+    display: none;
+  }
+
+  .footer-links {
+    align-items: center;
+  }
+}
+
+/* Responsividade para celulares e telas pequenas */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+    border-radius: 12px;
+  }
+
+  .menu {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .logo img {
+    width: 160px;
+  }
+
+  .overlay {
+    padding: 20px;
+  }
+
+  .overlay h1 {
+    font-size: 24px;
+  }
+
+  .overlay p {
+    font-size: 13px;
+  }
+
+  .hero-buttons button {
+    margin: 5px 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .search-box {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .search-form {
+    gap: 10px;
+  }
+
+  .form-toggle {
+    flex-wrap: wrap;
+  }
+
+  .form-fields {
+    flex-direction: column;
+  }
+
+  .form-fields input,
+  .form-fields select {
+    width: 100%;
+  }
+
+  .property-section {
+    padding: 20px;
+  }
+
+  .property-card {
+    width: 100%;
+  }
+
+  .contact-form {
+    padding: 20px;
+  }
+
+  .contact-form h2 {
+    font-size: 20px;
+  }
+
+  .footer-logo img {
+    max-width: 200px;
+  }
+
+  .footer-links a {
+    font-size: 16px;
+  }
+
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsapp-float img {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Ajuste extra para telas muito pequenas */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 8px 10px;
+  }
+
+  .menu a {
+    font-size: 14px;
+  }
+
+  .overlay h1 {
+    font-size: 20px;
+  }
+
+  .overlay p {
+    font-size: 12px;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-search,
+  .contact-form button {
+    font-size: 13px;
+    padding: 10px 15px;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+  }
+}

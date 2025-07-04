@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gabriel Ricardo - Corretor de Imóveis</title>
+  <meta name="description" content="Gabriel Ricardo é corretor de imóveis especializado em casas, apartamentos e imóveis comerciais. Atendimento personalizado para você encontrar o imóvel ideal." />
+  <meta name="keywords" content="corretor de imóveis, imóveis à venda, casas, apartamentos, terrenos, salas comerciais, aluguel, compra de imóveis, Gabriel Ricardo" />
+  <meta name="author" content="Gabriel Ricardo" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="pt-BR" />
+  <meta name="theme-color" content="#0d3f67" />
+  <meta name="copyright" content="Gabriel Ricardo" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Gabriel Ricardo - Corretor de Imóveis" />
+  <meta property="og:description" content="Encontre casas, apartamentos e imóveis comerciais com atendimento personalizado." />
+  <meta property="og:url" content="https://gabrielricardoimoveis.vercel.app/" />
+  <meta property="og:site_name" content="Gabriel Ricardo - Corretor de Imóveis" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="fav.png?v=1" type="image/png" />
+
+  <!-- Fontes e Estilos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style/styles.css" />
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">
+        <img src="img/gr CRECI.png" alt="Logo" />
+    </div>
+    <nav class="menu">
+      <a href="#" class="active">Início</a>
+      <a href="sobre.html">Quem sou eu?</a>
+      <a href="form.html">Anunciar imóvel</a>
+      <a href="partner.html" target="_blank">Seja Parceiro(a)</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="overlay">
+      <h1>Encontre o imóvel ideal para você</h1>
+      <p>Casas, apartamentos e imóveis comerciais com atendimento personalizado.</p>
+        <div class="search-box">
+<form id="searchForm" class="search-form">
+  <div class="form-toggle">
+    <button type="button" class="toggle-btn active" data-type="venda">Venda</button>
+    <button type="button" class="toggle-btn" data-type="locacao">Locação</button>
+  </div>
+  <div class="form-fields">
+    <select id="tipoSelect">
+      <option>Tipo do imóvel</option>
+    </select>
+    <select id="bairroSelect">
+      <option>Bairro</option>
+    </select>
+    <button type="submit" class="btn-search">Buscar</button>
+  </div>
+</form>
+    </div>
+    </div>
+  </section>
+<section class="property-section" id="casas-section">
+  <h2>Casas</h2>
+  <div class="property-list" id="casas-list"></div>
+</section>
+
+<section class="property-section" id="apartamentos-section">
+  <h2>Apartamentos</h2>
+  <div class="property-list" id="apartamentos-list"></div>
+</section>
+
+<section class="property-section" id="terrenos-section">
+  <h2>Terrenos</h2>
+  <div class="property-list" id="terrenos-list"></div>
+</section>
+
+<section class="property-section" id="comerciais-section">
+  <h2>Salas Comerciais</h2>
+  <div class="property-list" id="comerciais-list"></div>
+</section>
+
+<a href="https://wa.me/+5577988480076" class="whatsapp-float" target="_blank" title="Fale comigo no WhatsApp">
+  <img src="img/whatsapp-svgrepo-com.svg" alt="WhatsApp">
+</a>
+<section class="contact-section">
+    <div class="contact-container">
+      <div class="contact-image">
+        <img src="img/cliente.png" alt="Pessoa sorrindo no celular" />
+      </div>
+      <div class="contact-form">
+        <h2>CONTATE-NOS</h2>
+        <p>Atendimento personalizado para realizar seu sonho.</p>
+          <form id="formContato">
+            <input type="text" name="nome" placeholder="Nome Completo" required />
+            <div class="form-row">
+              <input type="tel" name="telefone" placeholder="Telefone" required />
+              <input type="text" name="interesse" placeholder="Interesse" />
+            </div>
+            <button type="button" id="enviarBtn">Enviar</button>
+          </form>
+      </div>
+    </div>
+  </section>
+
+ <footer>
+  <div class="footer-content">
+    <div class="footer-icons-logo">
+      <div class="footer-logo">
+        <img src="img/gr CRECI.png" alt="Logo do Corretor de Imóveis" class="footer-logo-img" />
+      </div>
+    </div>
+
+    <div class="footer-line"></div>
+
+    <div class="footer-links">
+      <a href="sobre.html">Quem sou eu?</a>
+      <a href="form.html">Anunciar imóvel</a>
+      <a href="partner.html">Seja Parceiro(a)</a>
+    </div>
+  </div>
+
+<p class="footer-copy">
+  &copy; 2025 Desenvolvido por
+  <a href="https://dgustatecnologia.vercel.app/" target="_blank" class="footer-link">dgustaTecnologia</a>.
+  Todos os direitos reservados.
+</p>
+</footer>
+  <script src="js/script.js"></script>
+
+</body>
+</html>

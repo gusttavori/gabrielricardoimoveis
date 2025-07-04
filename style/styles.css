@@ -1,0 +1,552 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%; /* Aumentado para melhor uso do espaço */
+    max-width: 1100px;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px; /* Diminuído o padding vertical */
+    background-color: rgba(255, 255, 255, 0.9); /* Levemente mais opaco */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.logo img{
+  width: 200px; /* Reduzido para melhor encaixe */
+  display: flex;
+}
+
+.menu a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px; /* Aumentado para melhor legibilidade */
+  font-weight: 500;
+  padding-bottom: 3px; /* Evita que o layout "pule" no hover */
+}
+
+.menu a.active,
+.menu a:hover {
+  color: #1d3557;
+  border-bottom: 2px solid #1d3557;
+}
+
+.hero {
+  background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') no-repeat center center/cover;
+  height: 80vh; /* ocupa a tela inteira */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+}
+
+.overlay {
+  text-align: center;
+  color: white;
+  background-color: rgba(0,0,0,0.75);
+  padding: 40px;
+  border-radius: 8px;
+}
+
+.overlay h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 14px;
+}
+
+.hero-buttons button {
+  margin: 0 10px;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: #1E3A5F;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.search-box {
+  background-color: #fff;
+  padding: 30px 40px;
+  margin: 30px auto 0;
+  max-width: 1500px !important;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+}
+
+.search-form {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 1250px !important;
+  margin: 0 auto;
+}
+
+.form-toggle {
+  display: flex;
+  border-radius: 6px;
+  gap: 10px;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.toggle-btn {
+  padding: 10px 25px;
+  border: none;
+  background-color: transparent;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn.active {
+  background-color: #1E3A5F;
+  color: white;
+}
+
+.form-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.form-fields select,
+.form-fields input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  flex: 1;
+  min-width: 180px;
+}
+
+.btn-search {
+  background-color: #1E3A5F;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.search-box select,
+.search-box button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.property-section {
+  padding: 40px 60px;
+}
+
+.property-section h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.property-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.property-card {
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 320px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.property-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-imovel {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.sem-resultados {
+  padding: 16px;
+  font-style: italic;
+  color: #666;
+}
+
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 200px; /* Altura fixa desejada */
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Preenche sem distorcer, cortando excessos */
+  display: block;
+}
+
+
+.price-tag {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background-color: #1E3A5F;
+  color: white;
+  padding: 5px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.property-info {
+  padding: 15px;
+}
+
+.property-info h3 {
+  margin: 0 0 5px;
+  font-size: 18px;
+}
+
+.property-info p {
+  color: #666;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.details {
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+  font-size: 14px;
+  color: #1d3557;
+}
+
+.details span {
+  font-size: small;
+}
+
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-float img {
+  width: 32px;
+  height: 32px;
+  filter: brightness(0) invert(1); /* Inverte as cores para o ícone ficar branco */
+}
+.contact-section {
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 50px 20px;
+}
+
+.contact-container {
+  display: flex;
+  background-color: #e2e2e2;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+}
+
+.contact-image {
+  flex: 1;
+  max-width: 500px;
+}
+
+.contact-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.contact-form {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.contact-form h2 {
+  margin-top: 1rem;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contact-form p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.contact-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #999;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.contact-form .form-row {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.contact-form .form-row input {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+.contact-form button {
+  background-color: #1E3A5F;
+  color: #fff;
+  border: none;
+  padding: 10px 40px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center; /* centraliza só o botão */
+  margin-top: 10px;
+}
+
+.contact-form button:hover {
+  background-color: #102946;
+}
+
+footer {
+  width: 100%;
+  background: #1E3A5F;
+  color: white;
+  padding: 40px 0 20px;
+  position: relative;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.footer-icons-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo img {
+  max-width: 300px;
+  height: auto;
+  filter: brightness(0) invert(1); /* Deixa o logo branco */
+}
+
+.footer-line {
+  width: 1.25px;
+  height: 120px;
+  background-color: white;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-copy {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #f1f1f1;
+}
+
+.footer-copy .footer-link {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-copy .footer-link:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+@media (max-width: 1024px) {
+    .property-section {
+        padding: 80px 20px 40px;
+    }
+
+    .contact-container {
+        max-width: 90%;
+    }
+}
+
+
+/* -- Para Celulares -- */
+@media (max-width: 768px) {
+    /* -- Navbar -- */
+    .navbar {
+        flex-direction: column; /* Empilha logo e menu */
+        gap: 15px;
+        width: 95%; /* Ocupa quase toda a tela */
+    }
+
+    .menu {
+        /* Para um menu com muitos itens, pode ser necessário um "hambúrguer" com JavaScript.
+           Esta solução com flex-wrap é uma alternativa simples com CSS puro. */
+        display: flex;
+        flex-wrap: wrap; /* Permite que os links quebrem a linha */
+        gap: 11px;
+    }
+
+    .menu a {
+        margin: 0; /* Reduz margens para caber mais links */
+    }
+
+    /* -- Hero e Busca -- */
+    .hero {
+        min-height: 100vh;
+    }
+
+    .overlay {
+    width: 450px;
+    }
+    .overlay h1 {
+        font-size: 20px;
+    }
+    .overlay p {
+        font-size: 14px;
+        margin-bottom: 100px;
+    }
+    .search-box {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 400px;
+        padding: 20px;
+        margin-top: -80px; /* Sobe um pouco mais em telas menores */
+    }
+    .search-form {
+        width: 100%;
+    }
+
+    .form-fields {
+        flex-direction: column;
+        align-items: stretch; /* Faz os campos ocuparem 100% da largura */
+    }
+    .form-fields select,
+    .form-fields input,
+    .btn-search {
+        min-width: 100%; /* Garante que ocupem a largura total */
+    }
+
+    /* -- Seção de Imóveis -- */
+    .property-section h2 {
+        font-size: 20px;
+    }
+    .property-list {
+        gap: 20px;
+    }
+
+    /* -- Seção de Contato -- */
+    .contact-container {
+        flex-direction: column;
+    }
+    .contact-image {
+        display: none; /* Esconde a imagem para economizar espaço vertical */
+    }
+    .contact-form {
+        padding: 25px;
+    }
+    .contact-form h2 {
+        font-size: 22px;
+    }
+
+    /* -- Rodapé -- */
+    .footer-content {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .footer-line {
+        display: none; /* Esconde a linha vertical */
+    }
+}

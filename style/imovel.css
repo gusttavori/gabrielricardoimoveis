@@ -1,0 +1,430 @@
+/* 1. Importa a fonte Montserrat no topo do arquivo */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/* --- Reset Básico e Estilos Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* 2. Aplica a fonte Montserrat como padrão */
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- NAVBAR RESPONSIVA (CORRIGIDA) --- */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%; /* Aumentado para melhor uso do espaço */
+    max-width: 1100px;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px; /* Diminuído o padding vertical */
+    background-color: rgba(255, 255, 255, 0.9); /* Levemente mais opaco */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.logo img{
+  width: 200px; /* Reduzido para melhor encaixe */
+  display: flex;
+}
+
+.menu a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px; /* Aumentado para melhor legibilidade */
+  font-weight: 400;
+  padding-bottom: 3px; /* Evita que o layout "pule" no hover */
+}
+
+.menu a.active,
+.menu a:hover {
+  color: #1d3557;
+  border-bottom: 2px solid #1d3557;
+}
+
+/* --- Estrutura Principal da Página (Layout de 2 Colunas) --- */
+.property-page-container {
+    max-width: 1400px;
+    margin: 120px auto 2rem; /* Aumenta a margem do topo para não ficar atrás da navbar */
+    padding: 1rem;
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+.main-content {
+    flex: 3;
+}
+
+.sidebar {
+    flex: 1;
+    position: sticky; /* Efeito "grudento" ao rolar a página */
+    top: 120px; /* Ponto onde a sidebar vai "grudar" */
+}
+
+/* --- Estilos da Galeria de Imagens (Mantido) --- */
+.gallery {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 12px;
+    margin-bottom: 2rem;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    background-color: #eee;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+}
+
+.gallery-more {
+    position: relative;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.gallery-more .view-more-photos-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(10, 10, 10, 0.5);
+    color: white;
+    width: 110px;
+    padding: 12px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 2;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.gallery-more:hover .view-more-photos-btn {
+    background-color: rgba(10, 10, 10, 0.75);
+}
+
+.gallery-more::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* --- Modal (Mantido) --- */
+/* ... (todo o seu CSS do modal permanece o mesmo) ... */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.9); justify-content: center; align-items: center; }
+.modal-content { margin: auto; display: block; max-width: 80%; max-height: 80vh; }
+#modal-image { width: 100%; height: auto; object-fit: contain; max-height: 80vh; }
+.modal-close { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer; }
+.modal-close:hover, .modal-close:focus { color: #bbb; text-decoration: none; }
+.modal-prev, .modal-next { cursor: pointer; position: absolute; top: 50%; width: auto; padding: 16px; margin-top: -50px; color: white; font-weight: bold; font-size: 20px; transition: 0.3s; border-radius: 0 3px 3px 0; user-select: none; background-color: rgba(0, 0, 0, 0.3); }
+.modal-next { right: 0; border-radius: 3px 0 0 3px; }
+.modal-prev { left: 0; }
+.modal-prev:hover, .modal-next:hover { background-color: rgba(0, 0, 0, 0.6); }
+
+/* --- Seção de Informações do Imóvel (Mantido) --- */
+/* ... (seu CSS de .property-info, .specs-grid e .description-details permanece o mesmo) ... */
+.property-info { background-color: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); }
+.property-info h1 { font-size: 2rem; font-weight: 600; margin-bottom: 1.5rem; color: #1a202c; line-height: 1.3; }
+.specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 2rem 1.5rem; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; padding: 2rem 0; }
+.spec-item { display: flex; align-items: center; gap: 1rem; }
+.spec-item i { font-size: 1.75rem; color: #1d3557; width: 30px; text-align: center; }
+.spec-item span { font-weight: 600; font-size: 1.1rem; color: #2d3748; }
+.spec-item p { font-size: 0.9rem; color: #718096; line-height: 1.2; }
+.description-details { margin-top: 2rem; }
+.description-details h3 { font-weight: 600; margin-bottom: 0.5rem; color: #2d3748; }
+.description-details p { color: #4a5568; }
+
+/* --- Barra Lateral Direita (Sidebar) (CORRIGIDA) --- */
+.contact-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    /* Removido height: 280px; para o conteúdo definir a altura */
+}
+
+.price-section { border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+.main-price { font-size: 1.9rem; font-weight: 700; color: #1a202c; line-height: 1.2; }
+.cta-button { width: 100%; background-color: #1d3557; color: white; border: none; padding: 16px; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; margin-bottom: 1.5rem; }
+.cta-button:hover { background-color: #004ac0; transform: translateY(-2px); }
+.agent-info { display: flex; align-items: center; gap: 1rem; text-align: left; }
+.agent-photo { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #e2e8f0; }
+.agent-details p { margin: 0; line-height: 1.4; font-size: 0.9rem; }
+.agent-name { font-weight: 600; font-size: 1rem; }
+.agent-contact i { color: #25D366; }
+
+
+/* --- Design Responsivo (MEDIA QUERIES ATUALIZADAS) --- */
+@media (max-width: 1200px) {
+    .property-page-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        position: static; /* Remove o "sticky" */
+        width: 100%;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Empilha o logo e o menu */
+        gap: 10px;
+        padding: 10px 15px;
+        width: 95%;
+    }
+    .menu a {
+        margin: 0 10px; /* Reduz a margem entre os links */
+        font-size: 14px;
+    }
+    .property-page-container {
+        margin-top: 180px; /* Mais espaço para a navbar maior */
+    }
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .property-info h1 {
+        font-size: 1.6rem;
+    }
+    .main-price {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu {
+        /* Em telas muito pequenas, pode ser necessário um menu hamburguer.
+           Por enquanto, apenas garantimos que não quebre o layout. */
+        display: none; /* Solução simples: esconde o menu. O ideal seria um menu hamburguer. */
+    }
+    .logo img {
+        width: 180px;
+    }
+    .navbar {
+        flex-direction: row; /* Volta ao normal sem o menu */
+        justify-content: center;
+    }
+    .property-page-container {
+        margin-top: 120px;
+    }
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Footer e WhatsApp (Mantidos) --- */
+/* ... (todo o seu CSS de footer e whatsapp-float permanece o mesmo) ... */
+footer { 
+    width: 100%; 
+    background: #1E3A5F; 
+    color: white; 
+    padding: 40px 0 20px; 
+    position: relative; 
+}
+.footer-content { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 30px; 
+}
+.footer-icons-logo { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+.footer-logo img { 
+    max-width: 300px; 
+    height: auto; 
+    filter: brightness(0) invert(1);
+}
+.footer-line { 
+    width: 1.25px; 
+    height: 120px; 
+    background-color: white; 
+}
+.footer-links { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px; 
+    justify-content: center; 
+}
+.footer-links a { 
+    color: white; 
+    text-decoration: none; 
+    font-size: 18px; 
+}
+.footer-links a:hover { 
+    text-decoration: underline; 
+}
+.footer-copy { 
+    margin-top: 30px; 
+    text-align: center; 
+    font-size: 14px; 
+    color: #f1f1f1; 
+}
+.footer-copy .footer-link { 
+    color: #f1f1f1; 
+    text-decoration: none; 
+    font-weight: bold; 
+}
+.footer-copy .footer-link:hover {
+     text-decoration: underline; 
+     color: #ffffff; 
+    }
+.whatsapp-float { 
+    position: fixed; 
+    width: 60px; 
+    height: 60px; 
+    bottom: 20px; 
+    right: 20px; 
+    z-index: 999; 
+    background-color: #25d366; 
+    padding: 14px; 
+    border-radius: 50%; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s; 
+}
+.whatsapp-float:hover {
+    transform: scale(1.1); 
+}
+.whatsapp-float img { 
+    width: 32px; 
+    height: 32px; 
+    filter: brightness(0) invert(1); }
+
+    @media (max-width: 1024px) {
+    .property-section {
+        padding: 80px 20px 40px;
+    }
+
+    .contact-container {
+        max-width: 90%;
+    }
+}
+
+
+/* -- Para Celulares -- */
+@media (max-width: 768px) {
+    /* -- Navbar -- */
+    .navbar {
+        flex-direction: column; /* Empilha logo e menu */
+        gap: 15px;
+        width: 95%; /* Ocupa quase toda a tela */
+    }
+
+    .menu {
+        /* Para um menu com muitos itens, pode ser necessário um "hambúrguer" com JavaScript.
+           Esta solução com flex-wrap é uma alternativa simples com CSS puro. */
+        display: flex;
+        flex-wrap: wrap; /* Permite que os links quebrem a linha */
+        gap: 11px;
+    }
+
+    .menu a {
+        margin: 0; /* Reduz margens para caber mais links */
+    }
+
+    /* -- Hero e Busca -- */
+    .hero {
+        min-height: 100vh;
+    }
+
+    .overlay {
+    width: 450px;
+    }
+    .overlay h1 {
+        font-size: 20px;
+    }
+    .overlay p {
+        font-size: 14px;
+        margin-bottom: 100px;
+    }
+    .search-box {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 400px;
+        padding: 20px;
+        margin-top: -80px; /* Sobe um pouco mais em telas menores */
+    }
+    .search-form {
+        width: 100%;
+    }
+
+    .form-fields {
+        flex-direction: column;
+        align-items: stretch; /* Faz os campos ocuparem 100% da largura */
+    }
+    .form-fields select,
+    .form-fields input,
+    .btn-search {
+        min-width: 100%; /* Garante que ocupem a largura total */
+    }
+
+    /* -- Seção de Imóveis -- */
+    .property-section h2 {
+        font-size: 20px;
+    }
+    .property-list {
+        gap: 20px;
+    }
+
+    /* -- Seção de Contato -- */
+    .contact-container {
+        flex-direction: column;
+    }
+    .contact-image {
+        display: none; /* Esconde a imagem para economizar espaço vertical */
+    }
+    .contact-form {
+        padding: 25px;
+    }
+    .contact-form h2 {
+        font-size: 22px;
+    }
+
+    /* -- Rodapé -- */
+    .footer-content {
+        flex-direction: column;
+        gap: 25px;
+    }
+    .footer-line {
+        display: none; /* Esconde a linha vertical */
+    }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="fav.png?v=1" type="image/png" />
+    <title>Detalhes do Imóvel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style/imovel.css" /> 
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="img/gr CRECI.png" alt="Logo" />
+        </div>
+        <nav class="menu">
+            <a href="index.html">Início</a>
+            <a href="sobre.html">Quem sou eu?</a>
+            <a href="form.html">Anunciar imóvel</a>
+            <a href="partner.html" target="_blank">Seja Parceiro(a)</a>
+        </nav>
+    </header>
+
+    <main class="property-page-container">
+        <div class="main-content">
+            <section class="gallery" id="imovel-gallery">
+                <div class="gallery-main">
+                    <img src="https://placehold.co/800x550?text=Carregando..." alt="Fachada principal da casa" id="gallery-img-1">
+                </div>
+                <div class="gallery-grid">
+                    <img src="https://placehold.co/400x275?text=Carregando..." alt="Detalhe da casa" id="gallery-img-2">
+                    <img src="https://placehold.co/400x275?text=Carregando..." alt="Detalhe da casa" id="gallery-img-3">
+                    <img src="https://placehold.co/400x275?text=Carregando..." alt="Detalhe da casa" id="gallery-img-4">
+                    <div class="gallery-more" id="gallery-more-container">
+                        <img src="https://placehold.co/400x275?text=Carregando..." alt="Detalhe da casa" id="gallery-img-5">
+                        <a href="#" class="view-more-photos-btn">
+                            Vizualizar as fotos
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="property-info">
+                <h1 id="tituloImovel">Carregando detalhes do imóvel...</h1>
+
+                <div class="specs-grid">
+                    <div class="spec-item"><i class="fa-solid fa-ruler-combined"></i><div><span id="spec-area">--</span><p>Área construída</p></div></div>
+                    <div class="spec-item"><i class="fa-solid fa-bed"></i><div><span id="spec-quartos">--</span><p>Quartos</p></div></div>
+                    <div class="spec-item"><i class="fa-solid fa-bath"></i><div><span id="spec-banheiros">--</span><p>Banheiros</p></div></div>
+                    <div class="spec-item"><i class="fa-solid fa-car"></i><div><span id="spec-garagem">--</span><p>Garagem</p></div></div>
+                    <div class="spec-item"><i class="fa-solid fa-water-ladder"></i><div><span id="spec-piscina">--</span><p>Piscina</p></div></div>
+                    <div class="spec-item" id="condominio-spec-item"><i class="fa-solid fa-shield-halved"></i><div><span id="spec-condominio">--</span><p>Condomínio</p></div></div>
+                </div>
+                
+                <div class="description-details">
+                    <h3>Descrição do Imóvel</h3>
+                    <p id="descricaoImovel">Carregando descrição...</p>
+                </div>
+            </section>
+        </div>
+
+        <aside class="sidebar">
+            <div class="contact-card">
+                <div class="price-section">
+                    <p class="main-price" id="precoImovel">Carregando...</p>
+                </div>
+
+                <button class="cta-button" id="btn-contato">Quero mais informações</button>
+
+                <div class="agent-info">
+                    <img src="img/perfil.png" alt="Foto do corretor Gabriel Ricardo" class="agent-photo">
+                    <div class="agent-details">
+                        <p class="agent-name">Gabriel Ricardo</p>
+                        <p class="agent-creci">CRECI: 34.861</p>
+                        <p class="agent-contact"><i class="fa-brands fa-whatsapp"></i> (77) 98848-0076</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+    
+ <footer>
+  <div class="footer-content">
+    <div class="footer-icons-logo">
+      <div class="footer-logo">
+        <img src="img/gr CRECI.png" alt="Logo do Corretor de Imóveis" class="footer-logo-img" />
+      </div>
+    </div>
+
+    <div class="footer-line"></div>
+
+    <div class="footer-links">
+      <a href="sobre.html">Quem sou eu?</a>
+      <a href="form.html">Anunciar imóvel</a>
+      <a href="partner.html">Seja Parceiro(a)</a>
+    </div>
+  </div>
+
+<p class="footer-copy">
+  &copy; 2025 Desenvolvido por
+  <a href="https://dgustatecnologia.vercel.app/" target="_blank" class="footer-link">dgustaTecnologia</a>.
+  Todos os direitos reservados.
+</p>
+</footer>
+
+    <a href="https://wa.me/5577988480076" class="whatsapp-float" target="_blank" title="Fale comigo no WhatsApp">
+        <img src="img/whatsapp-svgrepo-com.svg" alt="WhatsApp" class="whatsapp-icon">
+    </a>
+
+    <div id="image-carousel-modal" class="modal">
+  <span class="modal-close">&times;</span>
+  <a class="modal-prev">&#10094;</a>
+  <div class="modal-content">
+    <img id="modal-image" src="" alt="Imagem em destaque">
+  </div>
+  <a class="modal-next">&#10095;</a>
+</div>
+
+    <script src="js/description.js"></script>
+</body>
+</html>

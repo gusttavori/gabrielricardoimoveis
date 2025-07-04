@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #333;
+}
+
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%; /* Aumentado para melhor uso do espaço */
+    max-width: 1100px;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px; /* Diminuído o padding vertical */
+    background-color: rgba(255, 255, 255, 0.9); /* Levemente mais opaco */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.logo img{
+  width: 200px; /* Reduzido para melhor encaixe */
+  display: flex;
+}
+
+.menu a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px; /* Aumentado para melhor legibilidade */
+  font-weight: 500;
+  padding-bottom: 3px; /* Evita que o layout "pule" no hover */
+}
+
+.menu a.active,
+.menu a:hover {
+  color: #1d3557;
+  border-bottom: 2px solid #1d3557;
+}
+
+.hero {
+  position: relative;
+  background: url('/img/panoramica.png') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 200px 20px; /* Padding vertical reduzido */
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: -1;
+}
+
+.hero h1 {
+  margin-top: 50px;
+  font-size: 48px;
+  font-weight: 900;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-top: 10px;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.section {
+  padding: 60px 20px;
+  background-color: #f8f8f8;
+}
+
+.text-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.foto-legenda {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1; /* Permite que o container da foto seja flexível */
+}
+
+.logo-img {
+  width: 100%; /* Faz a imagem ocupar o espaço disponível */
+  max-width: 250px; /* Limita o tamanho máximo */
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+.legenda {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.4;
+  text-align: center; /* Centraliza a legenda */
+}
+
+.sobre {
+  flex: 2; /* Faz a seção de texto ocupar mais espaço */
+}
+
+.sobre p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+footer {
+  width: 100%;
+  background: #1E3A5F;
+  color: white;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.footer-icons-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo img {
+  max-width: 300px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+.footer-line {
+  width: 1.25px;
+  height: 120px;
+  background-color: white;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-copy {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #f1f1f1;
+}
+
+.footer-copy .footer-link {
+  color: #f1f1f1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-copy .footer-link:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+/* ============================================== */
+/* === INÍCIO DAS REGRAS DE RESPONSIVIDADE === */
+/* ============================================== */
+
+@media (max-width: 992px) {
+    /* Ajustes para tablets */
+    .text-block {
+        flex-direction: column; /* Empilha a imagem e o texto */
+        align-items: center;
+        gap: 50px;
+    }
+
+    .sobre {
+        text-align: center; /* Centraliza o texto quando empilhado */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajustes para celulares */
+
+    /* 1. Ajusta a Navbar */
+    .navbar {
+        flex-direction: column; /* Empilha logo e menu */
+        gap: 15px;
+        width: 95%; /* Ocupa quase toda a tela */
+    }
+
+    .menu {
+        /* Para um menu com muitos itens, pode ser necessário um "hambúrguer" com JavaScript.
+           Esta solução com flex-wrap é uma alternativa simples com CSS puro. */
+        display: flex;
+        flex-wrap: wrap; /* Permite que os links quebrem a linha */
+        gap: 11px;
+    }
+
+    .menu a {
+        margin: 0; /* Reduz margens para caber mais links */
+    }
+
+    /* 2. Ajusta a Seção Hero */
+    .hero {
+        padding: 100px 20px; /* Menos padding vertical */
+        min-height: 20vh;
+    }
+
+    .hero h1 {
+        font-size: 32px; /* Fonte menor */
+        margin-top: 80px; /* Menos margem superior */
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+    
+    /* 3. Ajusta o Rodapé */
+    .footer-content {
+        flex-direction: column;
+        gap: 25px;
+    }
+    
+    .footer-line {
+        display: none; /* Esconde a linha vertical, que não faz sentido no layout de coluna */
+    }
+}
