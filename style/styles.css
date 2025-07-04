@@ -172,7 +172,7 @@ body {
 }
 
 .property-section {
-  padding: 40px 60px;
+  padding: 30px 45px;
 }
 
 .property-section h2 {
@@ -248,13 +248,13 @@ body {
 
 .property-info h3 {
   margin: 0 0 5px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .property-info p {
   color: #666;
   margin-bottom: 10px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .details {
