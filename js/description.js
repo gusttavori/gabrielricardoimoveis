@@ -23,7 +23,7 @@ async function carregarImovel() {
     }
 
     try {
-        const response = await fetch(`http://localhost:3001/imoveis/${id}`);
+        const response = await fetch(`https://api-geral-g6bc.onrender.com/imoveis/${id}`);
         if (!response.ok) {
             throw new Error(`Imóvel não encontrado (Status: ${response.status})`);
         }

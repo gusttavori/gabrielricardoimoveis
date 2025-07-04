@@ -9,11 +9,11 @@ let imoveis = [];
 // Carrega todos os imóveis do backend e atualiza os filtros
 async function carregarImoveisFiltro() {
   try {
-    const response = await fetch('http://localhost:3001/imoveis');
+    const response = await fetch('https://api-geral-g6bc.onrender.com/imoveis');
     const data = await response.json();
     imoveis = data.imoveis; 
 
-    console.log('✅ Imóveis carregados:', imoveis);
+    // console.log('✅ Imóveis carregados:', imoveis);
     atualizarCampos();
     // Chama a renderização inicial após carregar e atualizar os campos
     renderizarImoveisFiltrados();
@@ -159,15 +159,15 @@ function renderizarImoveisFiltrados(filtros = {}) {
     `;
 
     // --- DIAGNÓSTICO AVANÇADO ---
-    console.log('---------------------------------');
-    console.log(`Verificando imóvel: "${imovel.titulo}"`);
-    console.log('Objeto completo:', imovel);
-    console.log('O imóvel tem a propriedade "_id"?', imovel.hasOwnProperty('_id'));
-    console.log('Valor de imovel.id:', imovel._id);
+    // console.log('---------------------------------');
+    // console.log(`Verificando imóvel: "${imovel.titulo}"`);
+    // console.log('Objeto completo:', imovel);
+    // console.log('O imóvel tem a propriedade "_id"?', imovel.hasOwnProperty('_id'));
+    // console.log('Valor de imovel.id:', imovel._id); 
     
     // Adiciona o evento de clique para redirecionar, usando o campo "_id"
     if (imovel._id) {
-      console.log('✅ SUCESSO: _id encontrado. Adicionando clique.');
+      // console.log('✅ SUCESSO: _id encontrado. Adicionando clique.');
       div.dataset.imovelId = imovel._id;
       div.addEventListener('click', () => {
         window.location.href = `imovel.html?id=${imovel._id}`;
@@ -176,7 +176,7 @@ function renderizarImoveisFiltrados(filtros = {}) {
       // Este aviso aparece se o imóvel não tiver um campo "_id"
       console.error('❌ FALHA: Imóvel sem _id. Não será clicável.', imovel.titulo);
     }
-    console.log('---------------------------------');
+    // console.log('---------------------------------');
     // --- FIM DO DIAGNÓSTICO ---
 
     if (tipoLower === 'casa' || tipoLower === 'casas') {
