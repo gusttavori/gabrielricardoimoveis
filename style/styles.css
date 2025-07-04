@@ -451,7 +451,7 @@ footer {
 
 @media (max-width: 1024px) {
     .property-section {
-        padding: 80px 20px 40px;
+        padding: 40px 20px 10px;
     }
 
     .contact-container {
