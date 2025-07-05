@@ -118,7 +118,8 @@ async function carregarImovel() {
         // 3. Descrição
         const descricaoContainer = document.getElementById('descricaoImovel');
         if (descricaoContainer) {
-            descricaoContainer.textContent = dados.descricao.replace(/\.\s*/g, '. ').trim();
+            // Apenas atribua o texto. O CSS cuidará das quebras de linha.
+            descricaoContainer.textContent = dados.descricao;
         }
 
         // --- MODIFICAÇÃO PRINCIPAL: Grid de Características Condicional ---
