@@ -68,7 +68,12 @@ toggleButtons.forEach(btn => {
     toggleButtons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     finalidadeAtual = btn.dataset.type;
-    atualizarCampos();
+    
+    // Atualiza os campos de filtro (dropdowns)
+    atualizarCampos(); 
+    
+    // E agora, renderiza os imóveis com a nova finalidade selecionada
+    renderizarImoveisFiltrados(); 
   });
 });
 
@@ -98,100 +103,117 @@ function formatarPreco(preco) {
 }
 
 // Renderiza imóveis com base nos filtros
+// Renderiza imóveis com base nos filtros (VERSÃO CORRIGIDA E OTIMIZADA)
 function renderizarImoveisFiltrados(filtros = {}) {
-  const casasSection = document.getElementById('casas-section');
-  const aptosSection = document.getElementById('apartamentos-section');
-  const terrenosSection = document.getElementById('terrenos-section');
-  const comerciaisSection = document.getElementById('comerciais-section');
+    const sections = {
+        casas: {
+            section: document.getElementById('casas-section'),
+            list: document.getElementById('casas-list'),
+            types: ['casa', 'casas']
+        },
+        apartamentos: {
+            section: document.getElementById('apartamentos-section'),
+            list: document.getElementById('apartamentos-list'),
+            types: ['apartamento', 'apartamentos']
+        },
+        terrenos: {
+            section: document.getElementById('terrenos-section'),
+            list: document.getElementById('terrenos-list'),
+            types: ['terreno', 'terrenos']
+        },
+        comerciais: {
+            section: document.getElementById('comerciais-section'),
+            list: document.getElementById('comerciais-list'),
+            types: ['sala comercial', 'comercial', 'salas comerciais']
+        }
+    };
 
-  const casasList = document.getElementById('casas-list');
-  const aptosList = document.getElementById('apartamentos-list');
-  const terrenosList = document.getElementById('terrenos-list');
-  const comerciaisList = document.getElementById('comerciais-list');
-
-  // Limpa todas as listas
-  casasList.innerHTML = '';
-  aptosList.innerHTML = '';
-  terrenosList.innerHTML = '';
-  comerciaisList.innerHTML = '';
-
-  // Esconde todas as seções inicialmente
-  casasSection.style.display = 'none';
-  aptosSection.style.display = 'none';
-  terrenosSection.style.display = 'none';
-  comerciaisSection.style.display = 'none';
-
-  const { finalidade, tipo, bairro } = filtros;
-
-  const filtrados = imoveis.filter(imovel => {
-    // Se nenhum filtro for passado, finalidade será undefined, então usamos a finalidadeAtual como padrão
-    const finalidadeFiltro = finalidade !== undefined ? finalidade : finalidadeAtual;
-    return (!finalidadeFiltro || imovel.finalidade === finalidadeFiltro) &&
-           (!tipo || imovel.tipo === tipo) &&
-           (!bairro || imovel.bairro === bairro);
-  });
-
-  if (filtrados.length === 0) {
-    const containerResultados = document.getElementById('casas-list') || document.body;
-    containerResultados.innerHTML = '<p class="no-results">Nenhum imóvel encontrado com os filtros selecionados.</p>';
-    const secaoResultados = containerResultados.closest('section');
-    if (secaoResultados) {
-        secaoResultados.style.display = 'block';
+    // Limpa todas as listas e esconde todas as seções primeiro
+    for (const key in sections) {
+        if (sections.hasOwnProperty(key)) {
+            sections[key].list.innerHTML = '';
+            sections[key].section.style.display = 'none';
+        }
     }
-    return;
-  }
 
-  filtrados.forEach(imovel => {
-    const tipoLower = imovel.tipo ? imovel.tipo.toLowerCase() : '';
-    const precoFormatado = formatarPreco(imovel.preco);
-    const div = document.createElement('div');
-    div.classList.add('property-card');
-    div.innerHTML = `
-      <div class="image-container">
-        <img src="${imovel.imagens && imovel.imagens.length > 0 ? imovel.imagens[0] : 'img/default.jpg'}" alt="${imovel.titulo}" />
-        <div class="price-tag">${precoFormatado}</div>
-      </div>
-      <div class="property-info">
-        <h3>${imovel.titulo}</h3>
-        <p>${imovel.bairro}</p>
-      </div>
-    `;
+    const { finalidade, tipo, bairro } = filtros;
 
-    // --- DIAGNÓSTICO AVANÇADO ---
-    // console.log('---------------------------------');
-    // console.log(`Verificando imóvel: "${imovel.titulo}"`);
-    // console.log('Objeto completo:', imovel);
-    // console.log('O imóvel tem a propriedade "_id"?', imovel.hasOwnProperty('_id'));
-    // console.log('Valor de imovel.id:', imovel._id); 
-    
-    // Adiciona o evento de clique para redirecionar, usando o campo "_id"
-    if (imovel._id) {
-      // console.log('✅ SUCESSO: _id encontrado. Adicionando clique.');
-      div.dataset.imovelId = imovel._id;
-      div.addEventListener('click', () => {
-        window.location.href = `imovel.html?id=${imovel._id}`;
-      });
-    } else {
-      // Este aviso aparece se o imóvel não tiver um campo "_id"
-      console.error('❌ FALHA: Imóvel sem _id. Não será clicável.', imovel.titulo);
+    // 1. FILTRAR A LISTA PRINCIPAL
+    const filtrados = imoveis.filter(imovel => {
+        const finalidadeFiltro = finalidade !== undefined ? finalidade : finalidadeAtual;
+        return (!finalidadeFiltro || imovel.finalidade === finalidadeFiltro) &&
+               (!tipo || imovel.tipo === tipo) &&
+               (!bairro || imovel.bairro === bairro);
+    });
+
+    if (filtrados.length === 0) {
+        const containerResultados = document.getElementById('casas-list') || document.body;
+        containerResultados.innerHTML = '<p class="no-results">Nenhum imóvel encontrado com os filtros selecionados.</p>';
+        const secaoResultados = containerResultados.closest('section');
+        if (secaoResultados) {
+            secaoResultados.style.display = 'block';
+        }
+        return;
     }
-    // console.log('---------------------------------');
-    // --- FIM DO DIAGNÓSTICO ---
 
-    if (tipoLower === 'casa' || tipoLower === 'casas') {
-      casasList.appendChild(div);
-      casasSection.style.display = 'block';
-    } else if (tipoLower === 'apartamento' || tipoLower === 'apartamentos') {
-      aptosList.appendChild(div);
-      aptosSection.style.display = 'block';
-    } else if (tipoLower === 'terreno' || tipoLower === 'terrenos') {
-      terrenosList.appendChild(div);
-      terrenosSection.style.display = 'block';
-    } else if (tipoLower === 'sala comercial' || tipoLower === 'comercial' || tipoLower === 'salas comerciais') {
-      comerciaisList.appendChild(div);
-      comerciaisSection.style.display = 'block';
+    // 2. AGRUPAR IMÓVEIS FILTRADOS POR CATEGORIA
+    const imoveisAgrupados = {
+        casas: [],
+        apartamentos: [],
+        terrenos: [],
+        comerciais: []
+    };
+
+    filtrados.forEach(imovel => {
+        const tipoLower = imovel.tipo ? imovel.tipo.toLowerCase() : '';
+        if (sections.casas.types.includes(tipoLower)) {
+            imoveisAgrupados.casas.push(imovel);
+        } else if (sections.apartamentos.types.includes(tipoLower)) {
+            imoveisAgrupados.apartamentos.push(imovel);
+        } else if (sections.terrenos.types.includes(tipoLower)) {
+            imoveisAgrupados.terrenos.push(imovel);
+        } else if (sections.comerciais.types.includes(tipoLower)) {
+            imoveisAgrupados.comerciais.push(imovel);
+        }
+    });
+
+    // 3. RENDERIZAR CADA CATEGORIA QUE TIVER IMÓVEIS
+    for (const key in imoveisAgrupados) {
+        if (imoveisAgrupados[key].length > 0) {
+            const categoria = sections[key];
+            
+            // Para cada imóvel no grupo, crie o card e adicione à lista
+            imoveisAgrupados[key].forEach(imovel => {
+                const precoFormatado = formatarPreco(imovel.preco);
+                const div = document.createElement('div');
+                div.classList.add('property-card');
+                div.innerHTML = `
+                    <div class="image-container">
+                        <img src="${imovel.imagens && imovel.imagens.length > 0 ? imovel.imagens[0] : 'img/default.jpg'}" alt="${imovel.titulo}" />
+                        <div class="price-tag">${precoFormatado}</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>${imovel.titulo}</h3>
+                        <p>${imovel.bairro}</p>
+                    </div>
+                `;
+
+                if (imovel._id) {
+                    div.dataset.imovelId = imovel._id;
+                    div.addEventListener('click', () => {
+                        window.location.href = `imovel.html?id=${imovel._id}`;
+                    });
+                } else {
+                    console.error('FALHA: Imóvel sem _id. Não será clicável.', imovel.titulo);
+                }
+                
+                categoria.list.appendChild(div);
+            });
+            
+            // Agora que todos os cards foram adicionados, mostre a seção inteira
+            categoria.section.style.display = 'block';
+        }
     }
-  });
 }
 
 // Envio de formulário de contato via WhatsApp
