@@ -171,6 +171,29 @@ body {
   font-size: 14px;
 }
 
+.btn-remove {
+  background-color: #6c757d; /* Um cinza neutro */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex; /* Para alinhar o ícone e o texto */
+  align-items: center;
+  gap: 8px; /* Espaço entre o ícone e o texto */
+  transition: background-color 0.3s ease;
+}
+
+.btn-remove:hover {
+  background-color: #5a6268;
+}
+
+/* Oculta o botão por padrão. O JavaScript o exibirá quando um filtro estiver ativo. */
+#remove-filter-btn {
+    display: none;
+}
+
 .property-section {
   padding: 30px 45px;
 }
