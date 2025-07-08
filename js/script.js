@@ -229,7 +229,7 @@ function renderizarImoveisFiltrados(filtros = {}) {
           </div>
           <div class="property-info">
               <h3>${imovel.titulo}</h3>
-              <p>${imovel.bairro} | ${dados.area}</p>
+              <p>${imovel.bairro}</p>
           </div>
         `;
         if (imovel._id) {
